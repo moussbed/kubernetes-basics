@@ -32,7 +32,16 @@ https://kubernetes.github.io/ingress-nginx/deploy/
 #### TO verify 
 
 ```shell
-    $ curl $(minikube ip): $(webapp-service port: find in the command kubectl get service)
-
+    $ kubectl get ingress # to get address of ingress rule 
 ```
+If address is assigned to localhost don't worry type this command to retrieve ip's address 
 
+```shell
+   $ minikube ip
+```
+Retrieve this address and map it to the dns defined in the ingress rule (webapp-ingress.yaml) on your hosts file 
+
+```shell
+   $ vim /etc/hosts
+   # ${ip}   webapp.com
+```
